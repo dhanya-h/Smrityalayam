@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Lora', serif;
+  --font-body: 'Nunito', sans-serif;
+
+  --color-parchment: #FAF0DC;
+  --color-cream: #FFF7EC;
+  --color-saffron: #C96520;
+  --color-saffron-lt: #F5D5B3;
+  --color-saffron-dk: #9E4E15;
+  --color-kumkum: #8B1A2E;
+  --color-kumkum-lt: #F7D9DF;
+  --color-warm-black: #1C0D05;
+  --color-warm-gray: #7D5A3E;
+  --color-warm-tan: #D4B48C;
+  --color-warm-peach: #F0DDCA;
+  --color-forest: #2A6B3E;
+  --color-forest-lt: #D0EDDA;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+  background-color: #FAF0DC;
+  color: #1C0D05;
+}
+
+html.text-large {
+  font-size: 118%;
+}
+
+html.text-xlarge {
+  font-size: 136%;
+}
+
+html.high-contrast {
+  --color-parchment: #FFFFFF;
+  --color-cream: #FFFFFF;
+  --color-warm-black: #000000;
+  --color-warm-gray: #333333;
+  --color-warm-tan: #999999;
+  --color-warm-peach: #EEEEEE;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flipIn {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+.screen-enter {
+  animation: fadeUp 0.25s ease-out;
+}
+
+.card-back {
+  background-color: #C96520;
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.07) 10px,
+      rgba(255, 255, 255, 0.07) 11px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.07) 10px,
+      rgba(255, 255, 255, 0.07) 11px
+    );
+}
+
+.perspective-card {
+  perspective: 800px;
+}
+
+.flip-card {
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
